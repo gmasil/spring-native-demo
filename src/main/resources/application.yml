@@ -1,0 +1,23 @@
+server:
+  port: 8080
+  tomcat:
+    remoteip:
+      protocol-header: X-Forwarded-Proto
+  error:
+    path: /error
+
+spring:
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+  mvc:
+    servlet:
+      load-on-startup: 1
+  session:
+    store-type: jdbc
+    jdbc:
+      initialize-schema: always
+  data:
+    rest:
+      base-path: api
