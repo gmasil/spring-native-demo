@@ -7,6 +7,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,6 +17,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.PreRemove;
 import javax.persistence.Table;
 
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -34,7 +36,8 @@ import lombok.Setter;
 @AllArgsConstructor
 @Entity(name = "USER")
 @Table(name = "USER")
-public class User implements UserDetails {
+@EntityListeners(AuditingEntityListener.class)
+public class User extends Auditable implements UserDetails {
 
     @Id
     @Setter(AccessLevel.NONE)

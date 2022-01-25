@@ -42,6 +42,11 @@ public class InitializeAdminService {
             userService.encodePassword(user);
             userService.save(user);
             LOG.info(INITIAL_ADMIN_USER_MSG, "admin", "admin");
+            // check
+            user = userService.findByUsername("admin").get();
+            if (user.getCreatedAt() == null) {
+                throw new IllegalStateException("admin created at is null");
+            }
         }
     }
 }
