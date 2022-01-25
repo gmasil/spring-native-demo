@@ -10,11 +10,6 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Join;
 import javax.persistence.criteria.Root;
 
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
-
-@Component
-@Repository
 public class UserRepositoryExtensionImpl implements UserRepositoryExtension {
 
     @PersistenceContext
